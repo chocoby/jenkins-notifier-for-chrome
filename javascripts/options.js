@@ -17,6 +17,12 @@ $(function() {
         }else{
             $("#use-websocket").attr("checked","")
         }
+
+        if(localStorage['error-notification'] == 'true') {
+            $("#error-notification").attr("checked","checked")
+        }else{
+            $("#error-notification").attr("checked","")
+        }
         update();
     }
     function save() {
@@ -25,6 +31,7 @@ $(function() {
             localStorage[name] = elem.attr("value");
         })
         localStorage['use-websocket'] = $("#use-websocket").attr("checked");
+        localStorage['error-notification'] = $("#error-notification").attr("checked");
 
         chrome.extension.getBackgroundPage().window.location.reload();
     }
