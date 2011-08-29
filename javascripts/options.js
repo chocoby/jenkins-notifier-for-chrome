@@ -12,19 +12,21 @@ $(function() {
             elem.attr( "value", localStorage[name]);
         });
 
-        if(localStorage['use-websocket'] == 'true') {
-            $("#use-websocket").attr("checked","checked")
-        }else{
-            $("#use-websocket").attr("checked","")
+        if (localStorage['use-websocket'] == 'true') {
+            $("#use-websocket").attr("checked","checked");
+        } else {
+            $("#use-websocket").attr("checked","");
         }
 
-        if(localStorage['error-notification'] == 'true') {
-            $("#error-notification").attr("checked","checked")
-        }else{
-            $("#error-notification").attr("checked","")
+        if (localStorage['error-notification'] == 'true') {
+            $("#error-notification").attr("checked","checked");
+        } else {
+            $("#error-notification").attr("checked","");
         }
+
         update();
     }
+
     function save() {
         eachField(function(elem) {
             var name = elem.attr("name");
@@ -35,10 +37,10 @@ $(function() {
 
         chrome.extension.getBackgroundPage().window.location.reload();
     }
-    function update(){
-        if($("#use-websocket").attr("checked")){
+    function update() {
+        if ($("#use-websocket").attr("checked")) {
             $("#websocket-url").attr("disabled","");
-        }else{
+        } else {
             $("#websocket-url").attr("disabled","disabled");
         }
     }
@@ -50,7 +52,7 @@ $(function() {
         window.close();
     });
 
-    $("#use-websocket").bind("change",function(e){
+    $("#use-websocket").bind("change",function(e) {
         update();
     })
 });

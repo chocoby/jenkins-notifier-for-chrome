@@ -1,8 +1,8 @@
-$(function(){
-    var apiUrl = localStorage["jenkins-url"];
+$(function() {
+    var apiUrl  = localStorage["jenkins-url"];
     var jobName = localStorage["job-name"];
-    var useWebsocket   = localStorage["use-websocket"];
-    var websocketUrl   = localStorage["websocket-url"];
+    var useWebsocket = localStorage["use-websocket"];
+    var websocketUrl = localStorage["websocket-url"];
 
     if (apiUrl == null || jobName == null || (useWebsocket == 'true' && websocketUrl == null)) {
         return;
@@ -19,6 +19,7 @@ $(function(){
     } else {
         var failureTimeout = 5000;
     }
+
     var errorNotification = localStorage["error-notification"];
 
     apiUrl = appendLastSlash(apiUrl);
